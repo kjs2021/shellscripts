@@ -13,36 +13,16 @@ on:
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
+
 jobs:
-  
-  build:
-    
+  zip-files:
     runs-on: ubuntu-latest
-
-    
     steps:
-      
-      - uses: actions/checkout@v3
-      - run: |
-          date > generated.txt
-          git config user.name kjs2021
-          git config user.email kksaini6@yahoo.com
-          git add .
-          git commit -m "generated"
-          git push
-
-      
-      - name: Run a one-line script
-        run: |
-         echo Hello, world!
-         echo "the github workspace is ${{ github.workspace}}"
-
-     
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-          
+      - uses: actions/checkout@v2
+      - uses: vimtor/action-zip@v1
+        with:
+          files: ${{github.workspace}}
+          dest: result.zip
      
     
      
