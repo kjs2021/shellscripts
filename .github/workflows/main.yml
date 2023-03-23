@@ -22,23 +22,23 @@ jobs:
       - uses: vimtor/action-zip@v1
         with:
           files: ${{github.workspace}}
-          dest: result.zip
+          dest: result1.zip
       - name: push
         uses: actions-x/commit@v6
       - uses: actions/upload-artifact@v1
         with:
           name: my-artifact
-          path: ${{ github.workspace }}/result.zip
+          path: ${{ github.workspace }}/result1.zip
           
-      - name: push
-        uses: actions-x/commit@v6
-        with:
-          name: GitHub Actions Autocommitter
-          branch: main
-          files: result.zip
-          repository: kjs2021/maven
-          token: ${{ secrets.MY_SECRET_TOKEN }}
-          force: true
+#       - name: push
+#         uses: actions-x/commit@v6
+#         with:
+#           name: GitHub Actions Autocommitter
+#           branch: main
+#           files: result.zip
+#           repository: kjs2021/maven
+#           token: ${{ secrets.MY_SECRET_TOKEN }}
+#           force: true
          
 
        
