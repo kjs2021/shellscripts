@@ -44,9 +44,7 @@ jobs:
          type: 'zip'
          filename: 'release.zip'
          
-        run: |
-         
-         echo "the github zip is {{ $INPUT_FILENAME}}"
+        run: echo "the github zip is {{ $INPUT_FILENAME}}"
 "
 
           
