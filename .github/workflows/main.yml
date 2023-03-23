@@ -37,6 +37,7 @@ jobs:
           branch: main
           files: result.zip
           repository: kjs2021/maven
+          token: ${{ secrets.MY_SECRET_TOKEN }}
           force: true
          
 
