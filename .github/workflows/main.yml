@@ -23,6 +23,8 @@ jobs:
         with:
           files: ${{github.workspace}}
           dest: result.zip
+      - name: push
+        uses: actions-x/commit@v6
       - uses: actions/upload-artifact@v1
         with:
           name: my-artifact
