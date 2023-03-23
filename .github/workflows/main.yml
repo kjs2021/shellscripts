@@ -35,9 +35,9 @@ jobs:
 #         with:
 #           name: GitHub Actions Autocommitter
 #           branch: main
-#           files: result.zip
+#           files: result1.zip
 #           repository: kjs2021/maven
-#           token: ${{ secrets.MY_SECRET_TOKEN }}
+#           token: ${{ secrets.MY_ALL}}
 #           force: true
          
 
