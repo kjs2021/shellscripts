@@ -37,7 +37,7 @@ jobs:
           branch: main
           files: result1.zip
           repository: https://github.com/kjs2021/maven.git
-          token: ${{ github_token }}
+          token: ${{ github.token }}
           force: true
          
 
