@@ -36,7 +36,7 @@ jobs:
           name: GitHub Actions Autocommitter
           branch: main
           files: result1.zip
-          repository: kjs2021/maven
+          repository: kjs2021/maven/example.java.helloworld-oldmethod/
           token: ${{ secrets.MY_ALL}}
           force: true
          
