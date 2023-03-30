@@ -25,12 +25,23 @@ jobs:
         with:
           files: ${{github.workspace}}
           dest: result-${{ github.sha }}.zip
-      - name: push
-        uses: actions-x/commit@v6
-      - uses: actions/upload-artifact@v1
+#       - name: push
+#         uses: actions-x/commit@v6
+#       - uses: actions/upload-artifact@v1
+#         with:
+#           name: my-artifact
+#           path: ${{ github.workspace }}/result-${{ github.sha }}.zip
+          
+      - name: Commit & Push changes
+#         run: |
+#           cat ${{ env.Filename}}
+        uses: actions-js/push@master
         with:
-          name: my-artifact
-          path: ${{ github.workspace }}/result-${{ github.sha }}.zip
+           github_token: ${{ secrets.Maven_zip}}
+           branch: main
+           message: 'Auto commit from github action zip'
+           directory: ./dev
+           repository: kjs202/maven
           
 #       - name: push
 #         uses: actions-x/commit@v6
