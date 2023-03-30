@@ -18,6 +18,8 @@ jobs:
     steps:
       
       - uses: actions/checkout@v2
+        with:
+          ref: action
       - run : rm -f result*
       - uses: vimtor/action-zip@v1
         with:
