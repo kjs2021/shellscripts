@@ -1,0 +1,53 @@
+name: actionzip
+
+
+on:
+ 
+  push:
+    branches: [ action ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+
+jobs:
+  zip-files:
+    runs-on: ubuntu-latest
+    steps:
+      
+      - uses: actions/checkout@v2
+      - run : rm -f result*
+      - uses: vimtor/action-zip@v1
+        with:
+          files: ${{github.workspace}}
+          dest: result-${{ github.sha }}.zip
+#       - name: push
+#         uses: actions-x/commit@v6
+#       - uses: actions/upload-artifact@v1
+#         with:
+#           name: my-artifact
+#           path: ${{ github.workspace }}/result-${{ github.sha }}.zip
+          
+      - name: Commit & Push changes
+#         run: |
+#           cat ${{ env.Filename}}
+        uses: actions-js/push@master
+        with:
+           github_token: ${{ secrets.MAVEN_ZIP}}
+           branch: main
+           message: 'Auto commit from github action zip'
+           directory: dev
+           repository: kjs202/maven
+          
+#       - name: push
+#         uses: actions-x/commit@v6
+#         with:
+#           name: GitHub Actions Autocommitter
+#           branch: main
+#           files: ${{ github.workspace }}/result-${{ github.sha }}.zip
+#           repository: https://github.com/kjs2021/maven
+#           token: ${{ github.token }}
+#           force: true
+         
