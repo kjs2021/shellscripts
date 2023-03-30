@@ -35,10 +35,10 @@ jobs:
 #           cat ${{ env.Filename}}
         uses: actions-js/push@master
         with:
-           github_token: ${{ secrets.MAVEN_ZIP}}
+           github_token: ${{ secrets.MAVEN_ZIP }}
            branch: main
            message: 'Auto commit from github action zip'
-           directory: dev
+           directory: .
            repository: kjs202/maven
           
 #       - name: push
